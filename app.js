@@ -1,42 +1,6 @@
 // Blog Data Structure (Simulated Backend)
 const blogPosts = [
   {
-    id: 1,
-    title: "Slowing Down: My Morning Coffee Ritual & Mindful Journaling",
-    category: "mindful",
-    categoryName: "Mindful Living",
-    date: "June 24, 2026",
-    readingTime: "5 min read",
-    excerpt: "There was a time when my mornings were a sprint. But lately, I've reclaimed the first thirty minutes of my day. No emails, no news, just the quiet whistle of the kettle, a warm ceramic mug between my hands, and a blank journal page. Here is what this slow ritual has taught me about transition and self-care in my forties...",
-    image: "cozy_flatlay.png",
-    likes: 124,
-    comments: 18
-  },
-  {
-    id: 2,
-    title: "The Art of Slow Fermentation: Tending My First Sourdough Starter",
-    category: "culinary",
-    categoryName: "Sourdough & Cooking",
-    date: "June 18, 2026",
-    readingTime: "8 min read",
-    excerpt: "Her name is Penelope, and she lives in a glass jar on my kitchen counter. At first, baking sourdough felt intimidating—all those percentages, hydration ratios, and temperature calculations. But once I let go of perfection, I realized that feeding a starter is less about chemistry and more about intuition, patience, and learning to listen to the rhythm of your home...",
-    image: "blogger_profile.png", // Osnat in her kitchen
-    likes: 215,
-    comments: 34
-  },
-  {
-    id: 3,
-    title: "Steeping Peace: Tending My Garden & Taming the Evening Chaos",
-    category: "home",
-    categoryName: "Home & Hearth",
-    date: "June 10, 2026",
-    readingTime: "6 min read",
-    excerpt: "After a long afternoon of tending to my sage bushes and lavender patches, there is nothing quite like brewing a fresh, garden-to-mug herbal tea. It has become my signature way to transition from the busy chaos of the day to a peaceful evening. Today, I'm sharing my favorite bedtime herbal blend and some thoughts on creating a home sanctuary...",
-    image: "herbal_tea.png",
-    likes: 189,
-    comments: 27
-  },
-  {
     id: 4,
     title: "שבועיים מעניינים עברו במשפחתנו — יומן דרכים ומחשבות",
     category: "mindful",
@@ -86,6 +50,42 @@ const blogPosts = [
         text: "נחשו מה? שוב נוסעים לבאר יעקב, והפעם בהפתעה - חוזרים לאריאל במהירות הבזק כדי להספיק למסיבת הסיום החגיגית של מוריה. במקביל, חנה חוגגת יום הולדת בטיול פריחה וטבע בנאות קדומים. חוזרים הביתה בערב, ואורזים בהתרגשות. נטע המקסימה לוקחת אותנו לנתב\"ג ויאללה — אנחנו בדרך לגיאורגיה! תודה ענקית מכל הלב לכל הנהגים המסורים שלנו שמלווים אותנו לאורך כל הדרך - החתן, הדוד והבת האהובה. ותודה רבה לסקודיאק הנאמנה שלנו ששירתה אותנו במסירות ובבטחה לאורך כל הנסיעות!"
       }
     ]
+  },
+  {
+    id: 1,
+    title: "Slowing Down: My Morning Coffee Ritual & Mindful Journaling",
+    category: "mindful",
+    categoryName: "Mindful Living",
+    date: "June 24, 2026",
+    readingTime: "5 min read",
+    excerpt: "There was a time when my mornings were a sprint. But lately, I've reclaimed the first thirty minutes of my day. No emails, no news, just the quiet whistle of the kettle, a warm ceramic mug between my hands, and a blank journal page. Here is what this slow ritual has taught me about transition and self-care in my forties...",
+    image: "cozy_flatlay.png",
+    likes: 124,
+    comments: 18
+  },
+  {
+    id: 2,
+    title: "The Art of Slow Fermentation: Tending My First Sourdough Starter",
+    category: "culinary",
+    categoryName: "Sourdough & Cooking",
+    date: "June 18, 2026",
+    readingTime: "8 min read",
+    excerpt: "Her name is Penelope, and she lives in a glass jar on my kitchen counter. At first, baking sourdough felt intimidating—all those percentages, hydration ratios, and temperature calculations. But once I let go of perfection, I realized that feeding a starter is less about chemistry and more about intuition, patience, and learning to listen to the rhythm of your home...",
+    image: "blogger_profile.png", // Osnat in her kitchen
+    likes: 215,
+    comments: 34
+  },
+  {
+    id: 3,
+    title: "Steeping Peace: Tending My Garden & Taming the Evening Chaos",
+    category: "home",
+    categoryName: "Home & Hearth",
+    date: "June 10, 2026",
+    readingTime: "6 min read",
+    excerpt: "After a long afternoon of tending to my sage bushes and lavender patches, there is nothing quite like brewing a fresh, garden-to-mug herbal tea. It has become my signature way to transition from the busy chaos of the day to a peaceful evening. Today, I'm sharing my favorite bedtime herbal blend and some thoughts on creating a home sanctuary...",
+    image: "herbal_tea.png",
+    likes: 189,
+    comments: 27
   }
 ];
 

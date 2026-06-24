@@ -1,0 +1,17 @@
+{
+  "name": "osnathadalittlebear",
+  "version": "1.0.0",
+  "description": "Osnat's personal travelogue and baking blog",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "blog",
+    "travelogue",
+    "hebrew",
+    "sourdough"
+  ],
+  "author": "Osnat",
+  "license": "ISC"
+}
