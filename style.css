@@ -1853,4 +1853,58 @@ html[lang="he"] .hebrew-timeline::before {
   }
 }
 
+/* ==========================================================================
+   Premium Direct Link Sharing Button Styles
+   ========================================================================== */
+.share-post-btn {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 0.45rem 1.1rem;
+  border-radius: 20px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.share-post-btn i {
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  transition: transform 0.3s ease;
+}
+
+.share-post-btn:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.share-post-btn:hover i {
+  color: #fff;
+  transform: rotate(-15deg) scale(1.15);
+}
+
+/* Adaptive RTL directionality */
+html[lang="he"] .share-post-btn {
+  direction: rtl;
+}
+
+@media (max-width: 576px) {
+  .share-post-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+    padding: 0.6rem;
+  }
+}
+
+
 

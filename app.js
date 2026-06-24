@@ -481,7 +481,7 @@ function initLikeButtons() {
   });
 }
 
-// 8. Premium Post Reading Modal System
+// 8. Premium Post Reading Modal System with Deep Linking Support
 function initPostModal() {
   const modal = document.getElementById("post-modal");
   const modalClose = document.getElementById("modal-close");
@@ -489,38 +489,44 @@ function initPostModal() {
   
   if (!modal || !modalClose || !modalBody) return;
   
-  // Close modal when close button is clicked
-  modalClose.addEventListener("click", () => {
+  // Parse current URL hash to route and open specific story
+  const handleHashRouting = () => {
+    const hash = window.location.hash;
+    const match = hash.match(/#post-(\d+)/);
+    
+    if (match) {
+      const postId = parseInt(match[1], 10);
+      const post = blogPosts.find(p => p.id === postId);
+      if (post) {
+        openPostModal(post, modal, modalBody);
+        return;
+      }
+    }
+    
+    // Smoothly close modal if hash is removed or invalid
     modal.classList.remove("active");
-    document.body.style.overflow = ""; // Restore body scrolling
+    document.body.style.overflow = ""; // Restore scrolling
+  };
+
+  // Close modal and safely clear the URL hash without page jump
+  modalClose.addEventListener("click", () => {
+    history.pushState("", document.title, window.location.pathname + window.location.search);
+    handleHashRouting();
   });
   
-  // Close modal when clicking outside the container
+  // Close modal when clicking on the backdrop
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
-      modal.classList.remove("active");
-      document.body.style.overflow = "";
+      history.pushState("", document.title, window.location.pathname + window.location.search);
+      handleHashRouting();
     }
   });
   
-  // Use event delegation for Read Musings, Title Links, and Card Images in the feed
-  document.addEventListener("click", (e) => {
-    const btn = e.target.closest(".read-more-btn, a[href^=\"#post-\"]");
-    if (!btn) return;
-    
-    e.preventDefault();
-    
-    // Extract ID from href like "#post-4" or a data-post-id attribute
-    const href = btn.getAttribute("href");
-    const idMatch = href.match(/#post-(\d+)/);
-    if (!idMatch) return;
-    
-    const postId = parseInt(idMatch[1], 10);
-    const post = blogPosts.find(p => p.id === postId);
-    if (!post) return;
-    
-    openPostModal(post, modal, modalBody);
-  });
+  // Listen for native URL hash change events (e.g. forward/backward or native link clicks)
+  window.addEventListener("hashchange", handleHashRouting);
+  
+  // Check on initial page load for direct links (e.g. sharing link index.html#post-4)
+  handleHashRouting();
 }
 
 // Temporary local state for Hebrew comments inside this session
@@ -599,10 +605,15 @@ function openPostModal(post, modal, modalBody) {
       <div class="rtl-container">
         <div class="rtl-post-header">
           <h1 class="rtl-post-title">${post.title}</h1>
-          <div class="rtl-post-meta">
-            <span><i class="far fa-calendar"></i> ${post.date}</span>
-            <span><i class="far fa-clock"></i> ${post.readingTime}</span>
-            <span><i class="far fa-folder"></i> ${post.categoryName}</span>
+          <div class="rtl-post-meta" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; width: 100%;">
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+              <span><i class="far fa-calendar"></i> ${post.date}</span>
+              <span><i class="far fa-clock"></i> ${post.readingTime}</span>
+              <span><i class="far fa-folder"></i> ${post.categoryName}</span>
+            </div>
+            <button class="share-post-btn" onclick="copyPostLink(${post.id})" title="העתקת קישור ישיר">
+              <i class="fas fa-link"></i> העתקת קישור לשיתוף
+            </button>
           </div>
         </div>
         
@@ -722,12 +733,17 @@ function openPostModal(post, modal, modalBody) {
 
       modalBody.innerHTML = `
         <div class="hebrew-modal-container" style="color: var(--color-text); line-height: 1.8; text-align: right; direction: rtl;">
-          <div style="border-bottom: 2px solid var(--color-border); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+          <div style="border-bottom: 2px solid var(--color-border); padding-bottom: 1.5rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.8rem;">
             <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-bottom: 0.8rem; font-family: var(--font-title);">${title}</h1>
-            <div style="display: flex; gap: 1.5rem; color: var(--color-text-muted); font-size: 0.9rem;">
-              <span><i class="far fa-calendar" style="margin-left: 0.4rem; color: var(--color-secondary);"></i> ${date}</span>
-              <span><i class="far fa-clock" style="margin-left: 0.4rem; color: var(--color-secondary);"></i> ${readingTime}</span>
-              <span><i class="far fa-folder" style="margin-left: 0.4rem; color: var(--color-secondary);"></i> ${categoryName}</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; color: var(--color-text-muted); font-size: 0.9rem; width: 100%;">
+              <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                <span><i class="far fa-calendar" style="margin-left: 0.4rem; color: var(--color-secondary);"></i> ${date}</span>
+                <span><i class="far fa-clock" style="margin-left: 0.4rem; color: var(--color-secondary);"></i> ${readingTime}</span>
+                <span><i class="far fa-folder" style="margin-left: 0.4rem; color: var(--color-secondary);"></i> ${categoryName}</span>
+              </div>
+              <button class="share-post-btn" onclick="copyPostLink(${post.id})" title="העתקת קישור ישיר">
+                <i class="fas fa-link"></i> העתקת קישור לשיתוף
+              </button>
             </div>
           </div>
           
@@ -759,12 +775,17 @@ function openPostModal(post, modal, modalBody) {
 
       modalBody.innerHTML = `
         <div class="english-modal-container" style="color: var(--color-text); line-height: 1.8;">
-          <div style="border-bottom: 2px solid var(--color-border); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+          <div style="border-bottom: 2px solid var(--color-border); padding-bottom: 1.5rem; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.8rem;">
             <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-bottom: 0.8rem; font-family: var(--font-title);">${post.title}</h1>
-            <div style="display: flex; gap: 1.5rem; color: var(--color-text-muted); font-size: 0.9rem;">
-              <span><i class="far fa-calendar" style="margin-right: 0.4rem; color: var(--color-secondary);"></i> ${post.date}</span>
-              <span><i class="far fa-clock" style="margin-right: 0.4rem; color: var(--color-secondary);"></i> ${post.readingTime}</span>
-              <span><i class="far fa-folder" style="margin-right: 0.4rem; color: var(--color-secondary);"></i> ${post.categoryName}</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; color: var(--color-text-muted); font-size: 0.9rem; width: 100%;">
+              <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                <span><i class="far fa-calendar" style="margin-right: 0.4rem; color: var(--color-secondary);"></i> ${post.date}</span>
+                <span><i class="far fa-clock" style="margin-right: 0.4rem; color: var(--color-secondary);"></i> ${post.readingTime}</span>
+                <span><i class="far fa-folder" style="margin-right: 0.4rem; color: var(--color-secondary);"></i> ${post.categoryName}</span>
+              </div>
+              <button class="share-post-btn" onclick="copyPostLink(${post.id})" title="Copy direct link">
+                <i class="fas fa-link"></i> Copy Link to Share
+              </button>
             </div>
           </div>
           
@@ -937,4 +958,55 @@ function closeLightbox() {
 // Expose functions to global context for inline click handlers
 window.openLightbox = openLightbox;
 window.closeLightbox = closeLightbox;
+
+// 11. Copy direct post link and notify user
+function copyPostLink(postId) {
+  const url = window.location.href.split('#')[0] + '#post-' + postId;
+  
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url)
+      .then(() => {
+        showShareSuccessToast();
+      })
+      .catch(err => {
+        console.error("Failed to copy link with Clipboard API: ", err);
+        fallbackCopyText(url);
+      });
+  } else {
+    fallbackCopyText(url);
+  }
+}
+
+function fallbackCopyText(text) {
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.style.position = "fixed";
+  textArea.style.top = "0";
+  textArea.style.left = "0";
+  textArea.style.opacity = "0";
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  try {
+    const successful = document.execCommand('copy');
+    if (successful) {
+      showShareSuccessToast();
+    } else {
+      showToast(isHebrewPage ? "לא הצלחנו להעתיק אוטומטית. העתיקו מכאן: " + text : "Could not copy automatically. Copy from here: " + text);
+    }
+  } catch (err) {
+    console.error('Fallback copy failed: ', err);
+    showToast(isHebrewPage ? "שגיאה בהעתקה." : "Error copying link.");
+  }
+  document.body.removeChild(textArea);
+}
+
+function showShareSuccessToast() {
+  const message = isHebrewPage 
+    ? "🔗 הקישור הישיר לסיפור הועתק בהצלחה ללוח! שתפו אותו עם חברים." 
+    : "🔗 Direct story link copied successfully! Share it with your friends.";
+  showToast(message);
+}
+
+window.copyPostLink = copyPostLink;
 
