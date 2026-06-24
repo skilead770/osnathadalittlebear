@@ -77,9 +77,31 @@ These items represent planned expansions that can be built incrementally, contin
 
 - [ ] **Phase 1: Hydration Calculator Widget**
       *   Add an interactive sourdough calculator tool in the sidebar. Let users input the flour weight and toggle hydration percentage to output water, starter, and salt calculations.
-- [ ] **Phase 2: Post Detail Overlays / Modal View**
+- [x] **Phase 2: Post Detail Overlays / Modal View**
       *   Enable clicking "Read Musings" to open a beautifully styled reading overlay/modal with the full blog post text and an interactive comment section.
 - [ ] **Phase 3: Cozy Night Mode Toggle**
       *   Add an elegant sun/moon switch in the navigation bar to toggle to a dark, cozy reading palette (e.g., deep charcoal background with muted warm cream text).
 - [ ] **Phase 4: Seasonal Garden Checklist**
       *   Introduce an interactive checklist widget indicating what to plant, prune, or harvest depending on the current season (Spring, Summer, Autumn, Winter).
+
+---
+
+## 6. Slide-Out Hebrew Reader Modal (Osnat's Story Integration)
+
+To seamlessly integrate Osnat's WhatsApp travelogue into the slow-living aesthetic, we implement a custom, high-fidelity slide-out reader modal featuring comprehensive Right-to-Left (RTL) typography, native layout styling, and media asset slots.
+
+### A. Core UX & Interaction Flow
+1. **Entry Point**: The user views a new card in the central blog feed titled *"שבועיים מעניינים עברו במשפחתנו — יומן דרכים ומחשבות"* ("Two interesting weeks passed in our family — A travelogue of thoughts").
+2. **Action**: Clicking *"Read Musings"* triggers a smooth slide-out overlay from the right (or center scale-in modal) that blocks background scrolling.
+3. **Typography**: The modal dynamically applies `@import` loaded premium Hebrew serif (`Frank Ruhl Libre`) and sans-serif (`Assistant`) typography for authentic, highly readable, and nostalgic Hebrew text.
+4. **Layout**: Fully Right-to-Left (`direction: rtl; text-align: right;`) spacing, elegant line-heights (`1.8`), and a beautiful pastel background matching the website's color tokens.
+
+### B. Rich Content Architecture
+*   **A Diary Timeline**: Instead of a plain text dump, the Hebrew text is parsed into structured chronological cards (e.g., Sunday 29 Sivan, Tuesday 1 Tammuz) to feel like a living diary.
+*   **Interactive Media Panels**:
+    *   **High-Res Photo Grid**: Responsive placeholders for photos from the family trip. Includes hover effects, caption text in Hebrew, and layout optimization.
+    *   **HTML5 Video Player Widget**: A customized HTML5 video container styled with terracotta accent play buttons, letting Osnat play her family travel video.
+*   **Simulated Social Interactions**:
+    *   A heart icon with state tracking so readers can "like" Osnat's travelogue.
+    *   A mini Hebrew comment form that mimics a guestbook, letting family members leave lovely warm notes.
+
