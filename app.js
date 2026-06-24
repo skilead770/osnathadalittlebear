@@ -184,10 +184,12 @@ function renderPosts(postsToRender) {
   
   feedContainer.innerHTML = postsToRender.map(post => `
     <article class="blog-post-card animate-fade-in" data-category="${post.category}">
-      <div class="post-img-container">
-        <img class="post-img" src="${post.image}" alt="${post.title}" loading="lazy" />
-        <div class="post-category-tag">${post.categoryName}</div>
-      </div>
+      <a href="#post-${post.id}">
+        <div class="post-img-container">
+          <img class="post-img" src="${post.image}" alt="${post.title}" loading="lazy" />
+          <div class="post-category-tag">${post.categoryName}</div>
+        </div>
+      </a>
       <div class="post-content">
         <div class="post-meta">
           <span><i class="far fa-calendar"></i> ${post.date}</span>
@@ -392,9 +394,9 @@ function initPostModal() {
     }
   });
   
-  // Use event delegation for Read Musings buttons in the feed
+  // Use event delegation for Read Musings, Title Links, and Card Images in the feed
   document.addEventListener("click", (e) => {
-    const btn = e.target.closest(".read-more-btn");
+    const btn = e.target.closest(".read-more-btn, a[href^=\"#post-\"]");
     if (!btn) return;
     
     e.preventDefault();
