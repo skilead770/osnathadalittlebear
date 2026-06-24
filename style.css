@@ -1609,4 +1609,248 @@ html[lang="he"] .hebrew-timeline::before {
   transform: rotate(90deg);
 }
 
+/* ==========================================================================
+   Comprehensive Mobile Optimization Override Block (< 576px)
+   ========================================================================== */
+@media (max-width: 576px) {
+  /* Container reduction to prevent squeezing */
+  .container {
+    padding: 0 1.2rem;
+  }
+
+  /* Header Logo & Navigation scaling */
+  .logo {
+    font-size: 1.4rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.2rem;
+  }
+  
+  .logo span {
+    font-size: 0.7rem;
+    margin: 0 !important;
+    letter-spacing: 1px;
+  }
+
+  .nav-bar {
+    padding: 1.2rem 0;
+    gap: 0.8rem;
+  }
+
+  .nav-links {
+    gap: 0.6rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+    display: inline-block;
+  }
+
+  /* Hero Section scaling */
+  .hero {
+    padding: 3rem 0 1.5rem 0;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    line-height: 1.25;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  /* Filter bar and category options adjustments */
+  .filter-bar {
+    padding: 1rem;
+    margin-bottom: 2.2rem;
+    gap: 1rem;
+  }
+
+  .category-filters {
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  /* Blog post cards and layouts */
+  .post-img-container {
+    height: 220px;
+  }
+
+  .post-content {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .post-title {
+    font-size: 1.45rem;
+    line-height: 1.35;
+    margin-bottom: 0.8rem;
+  }
+
+  .post-meta {
+    gap: 0.8rem;
+    font-size: 0.78rem;
+    margin-bottom: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .post-excerpt {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .post-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .read-more-btn {
+    padding: 0.8rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    display: block;
+  }
+
+  .post-likes {
+    justify-content: center;
+    padding: 0.8rem;
+  }
+
+  /* Sidebar widgets margins */
+  .sidebar {
+    gap: 2.5rem;
+  }
+
+  /* Interactive Newsletter Form */
+  .newsletter-input-group {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .newsletter-input {
+    border-radius: var(--radius-sm);
+  }
+
+  .newsletter-btn {
+    border-radius: var(--radius-sm);
+    padding: 0.8rem;
+    text-align: center;
+  }
+
+  /* Story Modal modifications for small screens */
+  .modal-close-btn {
+    margin: 1rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .rtl-post-title {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+
+  .rtl-post-meta {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    font-size: 0.82rem;
+  }
+
+  /* Timeline adaptations */
+  .hebrew-timeline {
+    gap: 1.5rem;
+  }
+
+  .timeline-day-card {
+    padding-right: 2rem !important;
+  }
+
+  .timeline-marker {
+    width: 16px;
+    height: 16px;
+    top: 8px;
+    right: 4px !important;
+  }
+
+  .hebrew-timeline::before {
+    right: 11px !important;
+  }
+
+  .timeline-day-title {
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
+
+  .timeline-day-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .timeline-day-images {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .timeline-day-img {
+    height: 180px;
+  }
+
+  /* Media grid gallery under story */
+  .media-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  /* Guestbook styling overrides */
+  .hebrew-comment-form {
+    gap: 0.8rem;
+  }
+
+  .hebrew-submit-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hebrew-comment-card {
+    padding: 1rem;
+  }
+
+  /* Lightbox viewer sizing on cell phones */
+  .lightbox-close {
+    top: 1rem;
+    right: 1rem;
+    width: 42px;
+    height: 42px;
+    font-size: 1.8rem;
+  }
+
+  .lightbox-caption {
+    font-size: 0.95rem;
+    padding: 0 1rem;
+  }
+}
+
 
