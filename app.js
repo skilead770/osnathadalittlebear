@@ -23,7 +23,11 @@ const blogPosts = [
     days: [
       {
         title: "יום ראשון כ\"ט סיון — הטיפול והנסיעה דרומה",
-        text: "נסיעה באוטובוס לרמת גן כדי לפגוש את דוד הראל, שיקח אותי לבאר יעקב בשביל הטיפול שלי. במקביל, נתנאל ויהודה מדרימים בסקודיאק."
+        text: "נסיעה באוטובוס לרמת גן כדי לפגוש את דוד הראל, שיקח אותי לבאר יעקב בשביל הטיפול שלי. במקביל, נתנאל ויהודה מדרימים בסקודיאק.",
+        images: [
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0008.jpg", caption: "קצת מסטולית🤪" },
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0002.jpg", caption: "בבגאז' ממצפה רמון - מכונית קארטינג שיהודה בנה עם חבר" }
+        ]
       },
       {
         title: "יום שני ל' סיוון — ערב כיתה חם",
@@ -31,11 +35,19 @@ const blogPosts = [
       },
       {
         title: "יום שלישי א' תמוז — חתונה מרגשת ופקק אינסופי",
-        text: "נסיעה ליקב פסגות לחתונתם של עדו ונועה, שריגשו אותנו כל כך. חזרנו דרך כביש 60, עם פקק ארוווך (עמידה של 40 דקות בצומת המשטרה הבריטית). במקביל, הילדים מתפזרים איש-איש למקומו: חיים חוזר לישיבה, נטע למדרשה, וישי והדר עושים את דרכם לבית שאן."
+        text: "נסיעה ליקב פסגות לחתונתם של עדו ונועה, שריגשו אותנו כל כך. חזרנו דרך כביש 60, עם פקק ארוווך (עמידה של 40 דקות בצומת המשטרה הבריטית). במקביל, הילדים מתפזרים איש-איש למקומו: חיים חוזר לישיבה, נטע למדרשה, וישי והדר עושים את דרכם לבית שאן.",
+        images: [
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0000.jpg", caption: "בחתונת עדו ונועה" }
+        ]
       },
       {
         title: "יום רביעי ב' תמוז — יום הולדת ושיעור מרתק",
-        text: "יום הולדת לחתן! חוגגים עם טיפול קטמין בבאר יעקב, ויאללה - אל ספר המדבר. נוסעים יחד עם מוריה וחנה למסיבת סיום במעון, שומעים שיעור מרתק של הרב נתן ומתוודעים לשנה המיוחדת והמופלאה שעברה על נטע שלנו."
+        text: "יום הולדת לחתן! חוגגים עם טיפול קטמין בבאר יעקב, ויאללה - אל ספר המדבר. נוסעים יחד עם מוריה וחנה למסיבת סיום במעון, שומעים שיעור מרתק של הרב נתן ומתוודעים לשנה המיוחדת והמופלאה שעברה על נטע שלנו.",
+        images: [
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0005.jpg", caption: "במעון" },
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0007.jpg", caption: "מסיבת סיום במעון" },
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0001.jpg", caption: "בבגאז' ממעון" }
+        ]
       },
       {
         title: "יום חמישי ג' תמוז — פגישת חברות ברעננה",
@@ -43,11 +55,18 @@ const blogPosts = [
       },
       {
         title: "שבת פרשת חקת — יום הולדת משולש בחיק המשפחה",
-        text: "שבת בבית בהרכב מצומצם אך איכותי ושווה במיוחד. אנחנו חוגגים יום הולדת משולש לנתנאל, חנה והדר. החתן עלה לתורה וקרא בצורה מדויקת, יפה, מוטעמת ונעימה לאוזן."
+        text: "שבת בבית בהרכב מצומצם אך איכותי ושווה במיוחד. אנחנו חוגגים יום הולדת משולש לנתנאל, חנה והדר. החתן עלה לתורה וקרא בצורה מדויקת, יפה, מוטעמת ונעימה לאוזן.",
+        images: [
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0006.jpg", caption: "יום הולדת לילדי חודש תמוז😍" }
+        ]
       },
       {
         title: "יום ראשון ו' תמוז — טקס סיום מרגש ומעבר פרק",
-        text: "כרגיל בנוהל - נוסעים לבאר יעקב, עוברים את הטיפול ונמצאים קצת בעירפול חושים מתוק, ומיד ממשיכים הלאה לנווה דניאל לטקס מעמד הסיום המרגש של חיים בישיבת מקור חיים (מקו\"ח) — הלב התרחב וזה היה מרגש כל כך. במקביל, נטע חוזרת סוף סוף הביתה לאחר 3 שנים מלאות שמחה, רוויות בעשייה ברוכה ובלימוד משמעותי."
+        text: "כרגיל בנוהל - נוסעים לבאר יעקב, עוברים את הטיפול ונמצאים קצת בעירפול חושים מתוק, ומיד ממשיכים הלאה לנווה דניאל לטקס מעמד הסיום המרגש של חיים בישיבת מקור חיים (מקו\"ח) — הלב התרחב וזה היה מרגש כל כך. במקביל, נטע חוזרת סוף סוף הביתה לאחר 3 שנים מלאות שמחה, רוויות בעשייה ברוכה ובלימוד משמעותי.",
+        images: [
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0004.jpg", caption: "עם הרב דב" },
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0003.jpg", caption: "בבגאז' של מקור חיים" }
+        ]
       },
       {
         title: "יום שני ז' תמוז — מפגש משפחתי תחת הגפנים",
@@ -55,7 +74,12 @@ const blogPosts = [
       },
       {
         title: "יום שלישי ח' תמוז — אריזות ויאללה לגיאורגיה!",
-        text: "נחשו מה? שוב נוסעים לבאר יעקב, והפעם בהפתעה - חוזרים לאריאל במהירות הבזק כדי להספיק למסיבת הסיום החגיגית של מוריה. במקביל, חנה חוגגת יום הולדת בטיול פריחה וטבע בנאות קדומים. חוזרים הביתה בערב, ואורזים בהתרגשות. נטע המקסימה לוקחת אותנו לנתב\"ג ויאללה — אנחנו בדרך לגיאורגיה! תודה ענקית מכל הלב לכל הנהגים המסורים שלנו שמלווים אותנו לאורך כל הדרך - החתן, הדוד והבת האהובה. ותודה רבה לסקודיאק הנאמנה שלנו ששירתה אותנו במסירות ובבטחה לאורך כל הנסיעות!"
+        text: "נחשו מה? שוב נוסעים לבאר יעקב, והפעם בהפתעה - חוזרים לאריאל במהירות הבזק כדי להספיק למסיבת הסיום החגיגית של מוריה. במקביל, חנה חוגגת יום הולדת בטיול פריחה וטבע בנאות קדומים. חוזרים הביתה בערב, ואורזים בהתרגשות. נטע המקסימה לוקחת אותנו לנתב\"ג ויאללה — אנחנו בדרך לגיאורגיה! תודה ענקית מכל הלב לכל הנהגים המסורים שלנו שמלווים אותנו לאורך כל הדרך - החתן, הדוד והבת האהובה. ותודה רבה לסקודיאק הנאמנה שלנו ששירתה אותנו במסירות ובבטחה לאורך כל הנסיעות!",
+        images: [
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0009.jpg", caption: "חוגגת יום הולדת בנאות קדומים" },
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0010.jpg", caption: "לא מאמינים שנוסעים פעמיים בשנה לחו\"ל🙈" },
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0011.jpg", caption: "בדרך לגיאורגיה המדהימה! ✈️🇬🇪" }
+        ]
       }
     ]
   },
@@ -512,17 +536,50 @@ function openPostModal(post, modal, modalBody) {
   document.body.style.overflow = "hidden";
   
   if (post.isHebrew) {
-    // Generate Hebrew timeline HTML
-    const timelineHtml = post.days.map((day, index) => `
-      <div class="timeline-day-card">
-        <div class="timeline-marker"></div>
-        <div class="timeline-day-content">
-          <div class="timeline-day-title">
-            <i class="far fa-calendar-check" style="color: var(--color-primary);"></i>
-            <span>${day.title}</span>
-          </div>
-          <p class="timeline-day-text">${day.text}</p>
+    // Generate Hebrew timeline HTML with dynamic day-by-day image grids
+    const timelineHtml = post.days.map((day, index) => {
+      const dayImagesHtml = day.images && day.images.length > 0 ? `
+        <div class="timeline-day-images animate-fade-in">
+          ${day.images.map(img => `
+            <div class="timeline-day-image-wrapper">
+              <img src="${encodeURI(img.path)}" alt="${img.caption}" loading="lazy" class="timeline-day-img" onclick="openLightbox('${encodeURI(img.path)}', '${img.caption.replace(/'/g, "\\'")}')" />
+              <div class="timeline-day-image-caption">${img.caption}</div>
+            </div>
+          `).join('')}
         </div>
+      ` : '';
+
+      return `
+        <div class="timeline-day-card">
+          <div class="timeline-marker"></div>
+          <div class="timeline-day-content">
+            <div class="timeline-day-title">
+              <i class="far fa-calendar-check" style="color: var(--color-primary);"></i>
+              <span>${day.title}</span>
+            </div>
+            <p class="timeline-day-text">${day.text}</p>
+            ${dayImagesHtml}
+          </div>
+        </div>
+      `;
+    }).join('');
+    
+    // Collect all images from all days dynamically to build the bottom gallery
+    const allGalleryImages = [];
+    post.days.forEach(day => {
+      if (day.images) {
+        day.images.forEach(img => {
+          allGalleryImages.push(img);
+        });
+      }
+    });
+
+    const galleryHtml = allGalleryImages.map(img => `
+      <div class="media-card">
+        <div class="media-card-img-placeholder">
+          <img src="${encodeURI(img.path)}" alt="${img.caption}" loading="lazy" onclick="openLightbox('${encodeURI(img.path)}', '${img.caption.replace(/'/g, "\\'")}')" style="cursor: zoom-in;" />
+        </div>
+        <div class="media-card-caption">${img.caption}</div>
       </div>
     `).join('');
     
@@ -557,24 +614,7 @@ function openPostModal(post, modal, modalBody) {
         <div class="story-media-gallery">
           <h2 class="gallery-title">📁 גלריית תמונות מהיומן</h2>
           <div class="media-grid">
-            <div class="media-card">
-              <div class="media-card-img-placeholder">
-                <img src="cozy_flatlay.png" alt="Osnat's cozy journal" />
-              </div>
-              <div class="media-card-caption">היומן שלי ורגעי כתיבה שקטים ברגעים קטנים של הפסקה 🌸</div>
-            </div>
-            <div class="media-card">
-              <div class="media-card-img-placeholder">
-                <img src="blogger_profile.png" alt="Osnat's Kitchen and Sourdough" />
-              </div>
-              <div class="media-card-caption">מכינים ארוחות מפנקות ומחכים שכולם יחזרו הביתה 🥖🏡</div>
-            </div>
-            <div class="media-card">
-              <div class="media-card-img-placeholder">
-                <img src="herbal_tea.png" alt="Garden and Pergola" />
-              </div>
-              <div class="media-card-caption">סוכת הגפנים היפה שבנו הבנים יהודה וחיים בחצר 🌿🍇</div>
-            </div>
+            ${galleryHtml}
           </div>
           
           <h2 class="gallery-title">🎥 סרטון מרגש מטקס הסיום המלא (מקור חיים)</h2>
@@ -848,4 +888,53 @@ async function initHebrewCalendarWidget() {
     parashaEl.textContent = "שבוע טוב ומבורך";
   }
 }
+
+// 10. Premium Lightbox System for Journal Images
+function openLightbox(src, caption) {
+  let lightbox = document.getElementById("cozy-lightbox");
+  if (!lightbox) {
+    lightbox = document.createElement("div");
+    lightbox.id = "cozy-lightbox";
+    lightbox.className = "lightbox-overlay";
+    lightbox.innerHTML = `
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="" />
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+    
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox || e.target.classList.contains('lightbox-content')) {
+        closeLightbox();
+      }
+    });
+  }
+  
+  const img = document.getElementById("lightbox-img");
+  const cap = document.getElementById("lightbox-caption");
+  
+  if (img && cap) {
+    img.src = src;
+    cap.textContent = caption;
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById("cozy-lightbox");
+  if (lightbox) {
+    lightbox.classList.remove("active");
+    const mainModal = document.getElementById("post-modal");
+    if (!mainModal || !mainModal.classList.contains("active")) {
+      document.body.style.overflow = "";
+    }
+  }
+}
+
+// Expose functions to global context for inline click handlers
+window.openLightbox = openLightbox;
+window.closeLightbox = closeLightbox;
 
