@@ -25,7 +25,6 @@ const blogPosts = [
         title: "יום ראשון כ\"ט סיון — הטיפול והנסיעה דרומה",
         text: "נסיעה באוטובוס לרמת גן כדי לפגוש את דוד הראל, שיקח אותי לבאר יעקב בשביל הטיפול שלי. במקביל, נתנאל ויהודה מדרימים בסקודיאק.",
         images: [
-          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0008.jpg", caption: "קצת מסטולית🤪" },
           { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0002.jpg", caption: "בבגאז' ממצפה רמון - מכונית קארטינג שיהודה בנה עם חבר" }
         ]
       },
@@ -45,8 +44,7 @@ const blogPosts = [
         text: "יום הולדת לחתן! חוגגים עם טיפול קטמין בבאר יעקב, ויאללה - אל ספר המדבר. נוסעים יחד עם מוריה וחנה למסיבת סיום במעון, שומעים שיעור מרתק של הרב נתן ומתוודעים לשנה המיוחדת והמופלאה שעברה על נטע שלנו.",
         images: [
           { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0005.jpg", caption: "במעון" },
-          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0007.jpg", caption: "מסיבת סיום במעון" },
-          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0001.jpg", caption: "בבגאז' ממעון" }
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0007.jpg", caption: "מסיבת סיום במעון" }
         ]
       },
       {
@@ -64,8 +62,10 @@ const blogPosts = [
         title: "יום ראשון ו' תמוז — טקס סיום מרגש ומעבר פרק",
         text: "כרגיל בנוהל - נוסעים לבאר יעקב, עוברים את הטיפול ונמצאים קצת בעירפול חושים מתוק, ומיד ממשיכים הלאה לנווה דניאל לטקס מעמד הסיום המרגש של חיים בישיבת מקור חיים (מקו\"ח) — הלב התרחב וזה היה מרגש כל כך. במקביל, נטע חוזרת סוף סוף הביתה לאחר 3 שנים מלאות שמחה, רוויות בעשייה ברוכה ובלימוד משמעותי.",
         images: [
-          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0004.jpg", caption: "עם הרב דב" },
-          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0003.jpg", caption: "בבגאז' של מקור חיים" }
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0008.jpg", caption: "קצת מסטולית🤪" },
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0001.jpg", caption: "בבגאז' ממעון" },
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0003.jpg", caption: "בבגאז' של מקור חיים" },
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0004.jpg", caption: "עם הרב דב" }
         ]
       },
       {
@@ -78,7 +78,7 @@ const blogPosts = [
         images: [
           { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0009.jpg", caption: "חוגגת יום הולדת בנאות קדומים" },
           { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0010.jpg", caption: "לא מאמינים שנוסעים פעמיים בשנה לחו\"ל🙈" },
-          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0011.jpg", caption: "בדרך לגיאורגיה המדהימה! ✈️🇬🇪" }
+          { path: "WhatsApp Chat with Elad Fenigstein/IMG-20260624-WA0011.jpg", caption: "לא מאמינים שנוסעים פעמיים בשנה לחו\"ל🙈" }
         ]
       }
     ]
