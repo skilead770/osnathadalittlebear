@@ -1405,3 +1405,82 @@ footer {
   color: var(--color-text-muted);
 }
 
+/* ==========================================================================
+   RTL OVERRIDES & HEBREW TYPOGRAPHY (lang="he")
+   ========================================================================== */
+html[lang="he"] {
+  --font-title: 'Frank Ruhl Libre', serif;
+  --font-body: 'Assistant', sans-serif;
+  direction: rtl;
+  text-align: right;
+}
+
+/* Header logo adjustments */
+html[lang="he"] .logo span {
+  margin-left: 0;
+  margin-right: 0.6rem;
+}
+
+/* Nav links RTL spacing */
+html[lang="he"] .nav-links {
+  padding-right: 0;
+  padding-left: 0;
+  gap: 1.5rem;
+}
+
+/* Search bar adjustments */
+html[lang="he"] .search-icon {
+  left: auto;
+  right: 1.2rem;
+}
+html[lang="he"] .search-input {
+  padding-left: 1.5rem;
+  padding-right: 3.2rem;
+}
+
+/* Toast positioning */
+html[lang="he"] .toast {
+  left: auto;
+  right: 2rem;
+}
+
+/* Book Tracker Widget and On My Nightstand */
+html[lang="he"] .book-details {
+  padding-left: 0;
+  padding-right: 1.2rem;
+  text-align: right;
+}
+
+/* Read More Button Arrow direction */
+html[lang="he"] .read-more-btn span {
+  transform: scaleX(-1); /* Flips the arrow to point left for RTL! */
+}
+html[lang="he"] .read-more-btn:hover span {
+  margin-right: 0.4rem; /* Animate left */
+  margin-left: 0;
+}
+
+/* Footer & Cookie Banner overrides */
+html[lang="he"] .cookie-banner {
+  text-align: right;
+}
+html[lang="he"] .cookie-btn-group {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Dynamic timeline alignment overrides in Hebrew context */
+html[lang="he"] .timeline-day-card {
+  padding-left: 0;
+  padding-right: 2rem;
+}
+html[lang="he"] .timeline-marker {
+  left: auto;
+  right: 0;
+}
+html[lang="he"] .hebrew-timeline::before {
+  left: auto;
+  right: 10px;
+}
+
+

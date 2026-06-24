@@ -1,13 +1,21 @@
+// Detect if the document is running in Hebrew context (hebrew.html)
+const isHebrewPage = document.documentElement.lang === 'he';
+
 // Blog Data Structure (Simulated Backend)
 const blogPosts = [
   {
     id: 4,
     title: "שבועיים מעניינים עברו במשפחתנו — יומן דרכים ומחשבות",
+    titleHe: "שבועיים מעניינים עברו במשפחתנו — יומן דרכים ומחשבות",
     category: "mindful",
     categoryName: "Gentle Reflections",
+    categoryNameHe: "הגיגים עדינים",
     date: "July 2, 2026",
+    dateHe: "2 ביולי, 2026",
     readingTime: "10 min read",
+    readingTimeHe: "קריאה של 10 דק'",
     excerpt: "שבועיים עמוסים ברגשות, טיפולים בבאר יעקב, נסיעות סוערות, מפגש משפחתי חם תחת סוכת הגפנים, רגעים קטנים של קירבה, ואריזה מהירה לקראת נסיעה מרגשת לגיאורגיה...",
+    excerptHe: "שבועיים עמוסים ברגשות, טיפולים בבאר יעקב, נסיעות סוערות, מפגש משפחתי חם תחת סוכת הגפנים, רגעים קטנים של קירבה, ואריזה מהירה לקראת נסיעה מרגשת לגיאורגיה...",
     image: "cozy_flatlay.png", // Fallback banner image
     likes: 342,
     comments: 15,
@@ -43,7 +51,7 @@ const blogPosts = [
       },
       {
         title: "יום שני ז' תמוז — מפגש משפחתי תחת הגפנים",
-        text: "יהודה חוזר הביתה אחרי יומיים של עבודה בחוות מגן אברהם, חיים חוזר מהישיבה, וישי והדר מגיעים אלינו מבית שאן הרחוקה — ממש כמו בפסוק: 'רְאִי, כֻּלָּם נִקְבְּצוּ בָאוּ לָךְ'. אנחנו עורכים מפגש קיץ משפחתי שמח של משפחת קדר אצלנו בחצר היפהפייה שנתנאל עיצב ומטפח באהבה. ישבנו יחד תחת סוכת הגפנים המרהיבה שיהודה וחיים ריתכו ובנו במו ידיהם ובכוחות עצמם."
+        text: "יהודה חוזר הביתה אחרי יומיים של עבודה בחוות מגן אברהם, חיים חוזר מהישיבה, וישי והדר מגיעים אלינו מבית שאן הרחוקה — ממש כמו בפסוק: 'רְאִי, כֻּלָּם נִקְבְּצוּ בָאוּ לָך'. אנחנו עורכים מפגש קיץ משפחתי שמח של משפחת קדר אצלנו בחצר היפהפייה שנתנאל עיצב ומטפח באהבה. ישבנו יחד תחת סוכת הגפנים המרהיבה שיהודה וחיים ריתכו ובנו במו ידיהם ובכוחות עצמם."
       },
       {
         title: "יום שלישי ח' תמוז — אריזות ויאללה לגיאורגיה!",
@@ -54,38 +62,83 @@ const blogPosts = [
   {
     id: 1,
     title: "Slowing Down: My Morning Coffee Ritual & Mindful Journaling",
+    titleHe: "להאט את הקצב: טקס קפה הבוקר שלי וכתיבה מודעת ביומן",
     category: "mindful",
     categoryName: "Mindful Living",
+    categoryNameHe: "חיים מודעים",
     date: "June 24, 2026",
+    dateHe: "24 ביוני, 2026",
     readingTime: "5 min read",
+    readingTimeHe: "קריאה של 5 דק'",
     excerpt: "There was a time when my mornings were a sprint. But lately, I've reclaimed the first thirty minutes of my day. No emails, no news, just the quiet whistle of the kettle, a warm ceramic mug between my hands, and a blank journal page. Here is what this slow ritual has taught me about transition and self-care in my forties...",
+    excerptHe: "היה זמן שבו הבקרים שלי היו ריצה מטורפת. אבל לאחרונה, החזרתי לעצמי את שלושים הדקות הראשונות של היום. בלי מיילים, בלי חדשות, רק שריקה שקטה של הקומקום, ספל קרמי חם בין ידיי, ודף יומן ריק. הנה מה שהטקס האיטי הזה לימד אותי על מעברים ודאגה עצמית בשנות הארבעים לחיי...",
     image: "cozy_flatlay.png",
     likes: 124,
-    comments: 18
+    comments: 18,
+    body: `
+      <p>There was a time when my mornings were a sprint. I would immediately check emails, scroll through the news, and plunge headfirst into a state of doing. But lately, in this chapter of my life, I have reclaimed the first thirty minutes of my day.</p>
+      <p>No emails, no digital noise—just the quiet whistle of the kettle, a warm ceramic mug between my hands, and a blank journal page waiting for my thoughts.</p>
+      <p>This slow morning ritual has taught me so much about gentle transitions, about protecting our peace before the world demands our attention, and about finding deep self-care in the simplest of habits.</p>
+    `,
+    bodyHe: `
+      <p>היה זמן שבו הבקרים שלי היו ריצה מטורפת. מיהרתי לבדוק הודעות, לקרוא חדשות, ולהיכנס מיד למצב של עשייה. אבל לאחרונה, בפרק החיים הזה, החזרתי לעצמי את שלושים הדקות הראשונות של היום שלי.</p>
+      <p>בלי מיילים, בלי רעש דיגיטלי—רק השריקה השקטה של הקומקום במטבח, המגע של ספל קרמי חם בין כפות ידיי, ודף נייר חלק שמחכה למילים שלי.</p>
+      <p>הטקס היומיומי והאיטי הזה לימד אותי על החשיבות של מעברים רכים, של יצירת מרחב שקט לפני שהעולם מבקש את תשומת הלב שלנו, ושל מציאת שלווה פנימית עמוקה ברגעים הפשוטים ביותר.</p>
+    `
   },
   {
     id: 2,
     title: "The Art of Slow Fermentation: Tending My First Sourdough Starter",
+    titleHe: "אמנות התסיסה האיטית: לטפח את מחמצת השאור הראשונה שלי",
     category: "culinary",
     categoryName: "Sourdough & Cooking",
+    categoryNameHe: "שאור ובישול",
     date: "June 18, 2026",
+    dateHe: "18 ביוני, 2026",
     readingTime: "8 min read",
+    readingTimeHe: "קריאה של 8 דק'",
     excerpt: "Her name is Penelope, and she lives in a glass jar on my kitchen counter. At first, baking sourdough felt intimidating—all those percentages, hydration ratios, and temperature calculations. But once I let go of perfection, I realized that feeding a starter is less about chemistry and more about intuition, patience, and learning to listen to the rhythm of your home...",
+    excerptHe: "קוראים לה פנלופה, והיא חיה בצנצנת זכוכית על שיש המטבח שלי. בהתחלה, אפיית שאור נראתה לי מאיימת—כל האחוזים האלה, יחסי הידרציה וחישובי טמפרטורה. אבל ברגע ששחררתי את הרצון בשלמות, הבנתי שהזנת מחמצת היא פחות כימיה ויותר אינטואיציה, סבלנות, והקשבה למקצב של הבית שלך...",
     image: "blogger_profile.png", // Osnat in her kitchen
     likes: 215,
-    comments: 34
+    comments: 34,
+    body: `
+      <p>Her name is Penelope, and she lives in a glass jar on my kitchen counter. At first, baking sourdough felt incredibly intimidating—all those baker's percentages, hydration ratios, and precise temperature calculations.</p>
+      <p>But once I let go of mathematical perfection, I realized that feeding and keeping a starter is less about chemistry and more about intuition, patience, and learning to listen to the rhythm of your home and seasons.</p>
+      <p>Today, Penelope yields rustic, golden-crusted loaves with an airy, wild crumb. She teaches me every day that the most rewarding things in life require time, temperature, and a little faith to rise.</p>
+    `,
+    bodyHe: `
+      <p>קוראים לה פנלופה, והיא חיה בצנצנת זכוכית על שיש המטבח שלי. בהתחלה, הרעיון של אפיית לחם שאור ביתי הרגיש לי מאיים במיוחד—כל האחוזים האלה, יחסי הידרציה, זמני התפחה וחישובי טמפרטורה מדויקים.</p>
+      <p>אבל ברגע ששחררתי את הצורך בשלמות אריתמטית, הבנתי שטיפוח והזנה של מחמצת הוא פחות שיעור בכימיה ויותר אימון באינטואיציה, קשב וסבלנות עמוקה. זה ללמוד להקשיב למקצב המשתנה של הבית שלך, של עונות השנה ושל הטבע עצמו.</p>
+      <p>היום, פנלופה מעניקה לנו לחמים ריחניים, בעלי קרום זהוב ומתפצפץ וחלק פנימי רך ומלא בועות אוויר. היא מלמדת אותי יום-יום שדברים טובים באמת דורשים את הזמן שלהם כדי לתפוח ולצמוח.</p>
+    `
   },
   {
     id: 3,
     title: "Steeping Peace: Tending My Garden & Taming the Evening Chaos",
+    titleHe: "לחלוט שלווה: לטפח את הגינה שלי ולהרגיע את כאוס הערב",
     category: "home",
     categoryName: "Home & Hearth",
+    categoryNameHe: "בית וחצר",
     date: "June 10, 2026",
+    dateHe: "10 ביוני, 2026",
     readingTime: "6 min read",
+    readingTimeHe: "קריאה של 6 דק'",
     excerpt: "After a long afternoon of tending to my sage bushes and lavender patches, there is nothing quite like brewing a fresh, garden-to-mug herbal tea. It has become my signature way to transition from the busy chaos of the day to a peaceful evening. Today, I'm sharing my favorite bedtime herbal blend and some thoughts on creating a home sanctuary...",
+    excerptHe: "אחרי אחר צהריים ארוך של טיפול בשיחי המרווה וערוגות הלבנדר שלי, אין דבר שמשתווה לחליטת תה צמחים טרי, ישר מהגינה לספל. זה הפך לדרך המזוהה איתי לעבור מהכאוס העמוס של היום לערב רגוע. היום אני משתפת את חליטת הצמחים המועדפת עליי לפני השינה וכמה מחשבות על יצירת מרחב שקט...",
     image: "herbal_tea.png",
     likes: 189,
-    comments: 27
+    comments: 27,
+    body: `
+      <p>After a long afternoon of weeding, trimming, and caring for my sage bushes and lavender patches, there is nothing quite like brewing a fresh, garden-to-mug herbal tea.</p>
+      <p>It has become my signature way to transition from the busy chaos of the day's tasks to a peaceful evening. The warm water, the rising steam, and the fragrant herbs create a quiet boundary between the busy world and the sanctuary of my home.</p>
+      <p>Today, I'm sharing my favorite bedtime herbal blend—a soothing combination of lemon verbena, lemon balm, and dried lavender—along with a few thoughts on creating a home sanctuary.</p>
+    `,
+    bodyHe: `
+      <p>אחרי אחר צהריים ארוך של עידור, ניכוש עשבים וטיפול אוהב בשיחי המרווה וערוגות הלבנדר בחצר, אין דבר שמשתווה לחליטה חמה של תה צמחים טרי, שנקטף ישירות מהגינה אל תוך הספל.</p>
+      <p>ההרגל הפשוט הזה הפך לדרך החתימה שלי למעבר רך ומודע מהכאוס של המשימות היומיומיות אל ערב שליו ומשפחתי. המים החמים, האדים העולים והניחוח המרגיע יוצרים גבול שקט בין המהומה שבחוץ למקדש הפנימי של הבית.</p>
+      <p>בפוסט הזה אני גאה לשתף אתכם במתכון של חליטת הערב המנצחת שלי—שילוב של מליסה ריחנית, לואיזה רעננה ופרחי לבנדר שמיובשים באהבה, יחד עם כמה מחשבות על עיצוב הבית כמקלט שקט של רוגע.</p>
+    `
   }
 ];
 
@@ -99,6 +152,17 @@ const cozyQuotes = [
   { text: "Sipping slow coffee in the morning is a form of prayer.", author: "Osnat" }
 ];
 
+// Cozy Quotes Array (Hebrew)
+const cozyQuotesHe = [
+  { text: "לפעמים הדבר הכי פרודוקטיבי שאתה יכול לעשות הוא לתת לבצק לתפוח.", author: "אסנת" },
+  { text: "הגינה שלי מלמדת אותי כל יום שלא ניתן לזרז צמיחה. היא דורשת סבלנות, אור שמש וקצת אדמה.", author: "אסנת" },
+  { text: "אושר הוא ספל חם של קמומיל, ספר חצי קרוא, וחלון מכוסה בטיפות גשם.", author: "אסנת" },
+  { text: "בשנות העשרים שלי, רציתי לשנות את העולם. בשנות הארבעים שלי, אני רק רוצה מטבח שליו ואדמה בריאה.", author: "אסנת" },
+  { text: "אנחנו לא צריכים חיים מאורגנים בצורה מושלמת כדי ליהנות מחיים יפים ומלאי שמחה.", author: "אסנת" },
+  { text: "ללגום קפה איטי בבוקר זו סוג של תפילה.", author: "אסנת" }
+];
+
+
 // Document Elements
 document.addEventListener("DOMContentLoaded", () => {
   initGreeting();
@@ -109,6 +173,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initCookieBanner();
   initLikeButtons();
   initPostModal(); // Initialize premium post reading modal overlay
+  if (isHebrewPage) {
+    initHebrewCalendarWidget();
+  }
 });
 
 // 1. Warm Greeting Based on Local Time
@@ -117,14 +184,14 @@ function initGreeting() {
   if (!greetingEl) return;
   
   const hour = new Date().getHours();
-  let greeting = "Welcome, friend";
+  let greeting = isHebrewPage ? "ברוכים הבאים, חברים" : "Welcome, friend";
   
   if (hour < 12) {
-    greeting = "Good morning, friend";
+    greeting = isHebrewPage ? "בוקר טוב, חברים" : "Good morning, friend";
   } else if (hour < 18) {
-    greeting = "Good afternoon, friend";
+    greeting = isHebrewPage ? "צהריים טובים, חברים" : "Good afternoon, friend";
   } else {
-    greeting = "Good evening, friend";
+    greeting = isHebrewPage ? "ערב טוב, חברים" : "Good evening, friend";
   }
   
   greetingEl.textContent = greeting;
@@ -138,6 +205,7 @@ function initQuoteGenerator() {
   
   if (!quoteTextEl || !quoteAuthorEl || !quoteBtn) return;
   
+  const activeQuotes = isHebrewPage ? cozyQuotesHe : cozyQuotes;
   let currentIdx = 0;
   
   quoteBtn.addEventListener("click", () => {
@@ -148,11 +216,11 @@ function initQuoteGenerator() {
     setTimeout(() => {
       let newIdx;
       do {
-        newIdx = Math.floor(Math.random() * cozyQuotes.length);
-      } while (newIdx === currentIdx && cozyQuotes.length > 1);
+        newIdx = Math.floor(Math.random() * activeQuotes.length);
+      } while (newIdx === currentIdx && activeQuotes.length > 1);
       
       currentIdx = newIdx;
-      const selected = cozyQuotes[currentIdx];
+      const selected = activeQuotes[currentIdx];
       
       quoteTextEl.textContent = `"${selected.text}"`;
       quoteAuthorEl.textContent = selected.author;
@@ -173,43 +241,56 @@ function renderPosts(postsToRender) {
   if (!feedContainer) return;
   
   if (postsToRender.length === 0) {
+    const emptyTitle = isHebrewPage ? "לא נמצאו הגיגים" : "No musings found";
+    const emptyText = isHebrewPage ? "נסו לשנות את החיפוש או לבחור קטגוריה אחרת." : "Try refining your search or category filter to find what you are looking for.";
+    
     feedContainer.innerHTML = `
       <div class="animate-fade-in" style="text-align: center; padding: 4rem; border: 1px dashed var(--color-border); border-radius: var(--radius-md); background: var(--color-bg-card);">
-        <h3 style="font-size: 1.5rem; color: var(--color-text-muted); margin-bottom: 0.5rem;">No musings found</h3>
-        <p style="color: var(--color-text-muted); font-size: 0.95rem;">Try refining your search or category filter to find what you are looking for.</p>
+        <h3 style="font-size: 1.5rem; color: var(--color-text-muted); margin-bottom: 0.5rem;">${emptyTitle}</h3>
+        <p style="color: var(--color-text-muted); font-size: 0.95rem;">${emptyText}</p>
       </div>
     `;
     return;
   }
   
-  feedContainer.innerHTML = postsToRender.map(post => `
-    <article class="blog-post-card animate-fade-in" data-category="${post.category}">
-      <a href="#post-${post.id}">
-        <div class="post-img-container">
-          <img class="post-img" src="${post.image}" alt="${post.title}" loading="lazy" />
-          <div class="post-category-tag">${post.categoryName}</div>
-        </div>
-      </a>
-      <div class="post-content">
-        <div class="post-meta">
-          <span><i class="far fa-calendar"></i> ${post.date}</span>
-          <span><i class="far fa-clock"></i> ${post.readingTime}</span>
-        </div>
+  feedContainer.innerHTML = postsToRender.map(post => {
+    const title = isHebrewPage ? (post.titleHe || post.title) : post.title;
+    const categoryName = isHebrewPage ? (post.categoryNameHe || post.categoryName) : post.categoryName;
+    const date = isHebrewPage ? (post.dateHe || post.date) : post.date;
+    const readingTime = isHebrewPage ? (post.readingTimeHe || post.readingTime) : post.readingTime;
+    const excerpt = isHebrewPage ? (post.excerptHe || post.excerpt) : post.excerpt;
+    const readMoreText = isHebrewPage ? "קראו עוד" : "Read Musings";
+    const likesText = isHebrewPage ? "לייקים" : "likes";
+
+    return `
+      <article class="blog-post-card animate-fade-in" data-category="${post.category}">
         <a href="#post-${post.id}">
-          <h2 class="post-title">${post.title}</h2>
+          <div class="post-img-container">
+            <img class="post-img" src="${post.image}" alt="${title}" loading="lazy" />
+            <div class="post-category-tag">${categoryName}</div>
+          </div>
         </a>
-        <p class="post-excerpt">${post.excerpt}</p>
-        <div class="post-footer">
-          <a href="#post-${post.id}" class="read-more-btn">
-            Read Musings <span>&rarr;</span>
+        <div class="post-content">
+          <div class="post-meta">
+            <span><i class="far fa-calendar"></i> ${date}</span>
+            <span><i class="far fa-clock"></i> ${readingTime}</span>
+          </div>
+          <a href="#post-${post.id}">
+            <h2 class="post-title">${title}</h2>
           </a>
-          <button class="post-likes" data-post-id="${post.id}">
-            <i class="far fa-heart"></i> <span class="like-count">${post.likes}</span> likes
-          </button>
+          <p class="post-excerpt">${excerpt}</p>
+          <div class="post-footer">
+            <a href="#post-${post.id}" class="read-more-btn">
+              ${readMoreText} <span>&rarr;</span>
+            </a>
+            <button class="post-likes" data-post-id="${post.id}">
+              <i class="far fa-heart"></i> <span class="like-count">${post.likes}</span> ${likesText}
+            </button>
+          </div>
         </div>
-      </div>
-    </article>
-  `).join('');
+      </article>
+    `;
+  }).join('');
   
   // Re-initialize like button event listeners
   initLikeButtons();
@@ -232,9 +313,13 @@ function initSearchAndFilters() {
   const filterAndSearch = () => {
     const filtered = blogPosts.filter(post => {
       const matchesCategory = activeCategory === "all" || post.category === activeCategory;
-      const matchesSearch = post.title.toLowerCase().includes(searchQuery) || 
-                            post.excerpt.toLowerCase().includes(searchQuery) ||
-                            post.categoryName.toLowerCase().includes(searchQuery);
+      const title = isHebrewPage ? (post.titleHe || post.title) : post.title;
+      const excerpt = isHebrewPage ? (post.excerptHe || post.excerpt) : post.excerpt;
+      const categoryName = isHebrewPage ? (post.categoryNameHe || post.categoryName) : post.categoryName;
+      
+      const matchesSearch = title.toLowerCase().includes(searchQuery) || 
+                            excerpt.toLowerCase().includes(searchQuery) ||
+                            categoryName.toLowerCase().includes(searchQuery);
       return matchesCategory && matchesSearch;
     });
     renderPosts(filtered);
@@ -271,7 +356,7 @@ function initNewsletterForm() {
       const email = input.value.trim();
       input.value = "";
       
-      showToast(`☕ Thank you! We've sent a welcome tea-letter to ${email}. Check your inbox soon!`);
+      showToast(isHebrewPage ? `☕ תודה רבה! שלחנו מכתב-תה חגיגי ל-${email}. בדקו את תיבת הדואר שלכם בקרוב!` : `☕ Thank you! We've sent a welcome tea-letter to ${email}. Check your inbox soon!`);
     });
   });
 }
@@ -315,7 +400,7 @@ function initCookieBanner() {
   acceptBtn.addEventListener("click", () => {
     localStorage.setItem("cozy-cookies-accepted", "true");
     banner.classList.remove("show");
-    showToast("🍪 Cookies accepted! We'll remember your cozy settings.");
+    showToast(isHebrewPage ? "🍪 העוגיות אושרו! נזכור את ההגדרות החמימות שלך." : "🍪 Cookies accepted! We'll remember your cozy settings.");
   });
   
   declineBtn.addEventListener("click", () => {
@@ -364,7 +449,7 @@ function initLikeButtons() {
         btn.style.color = "var(--color-primary)";
         icon.style.transform = "scale(1.4)";
         setTimeout(() => icon.style.transform = "scale(1)", 200);
-        showToast("💖 Thanks for loving this post! It keeps my cozy kitchen running.");
+        showToast(isHebrewPage ? "💖 תודה על הלייק שלכם! זה מחמם את הלב ומחזיק את הבלוג פעיל." : "💖 Thanks for loving this post! It keeps my cozy kitchen running.");
       }
       
       countEl.textContent = post.likes;
@@ -582,40 +667,89 @@ function openPostModal(post, modal, modalBody) {
     }
     
   } else {
-    // English post layout (IDs 1, 2, 3)
-    modalBody.innerHTML = `
-      <div class="english-modal-container" style="color: var(--color-text); line-height: 1.8;">
-        <div style="border-bottom: 2px solid var(--color-border); padding-bottom: 1.5rem; margin-bottom: 2rem;">
-          <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-bottom: 0.8rem; font-family: var(--font-title);">${post.title}</h1>
-          <div style="display: flex; gap: 1.5rem; color: var(--color-text-muted); font-size: 0.9rem;">
-            <span><i class="far fa-calendar" style="margin-right: 0.4rem; color: var(--color-secondary);"></i> ${post.date}</span>
-            <span><i class="far fa-clock" style="margin-right: 0.4rem; color: var(--color-secondary);"></i> ${post.readingTime}</span>
-            <span><i class="far fa-folder" style="margin-right: 0.4rem; color: var(--color-secondary);"></i> ${post.categoryName}</span>
+    // Standard post layout (IDs 1, 2, 3)
+    if (isHebrewPage) {
+      const title = post.titleHe || post.title;
+      const date = post.dateHe || post.date;
+      const readingTime = post.readingTimeHe || post.readingTime;
+      const categoryName = post.categoryNameHe || post.categoryName;
+      const excerpt = post.excerptHe || post.excerpt;
+      const body = post.bodyHe || post.body;
+      const likedLabel = "לייקים";
+      const lovedTitleHe = "אהבת את ההגיג?";
+      const lovedTextHe = "השאירו לב קטן כדי לעזור לבלוג להמשיך לצמוח.";
+      const likeBtnTextHe = "אהבתי";
+
+      modalBody.innerHTML = `
+        <div class="hebrew-modal-container" style="color: var(--color-text); line-height: 1.8; text-align: right; direction: rtl;">
+          <div style="border-bottom: 2px solid var(--color-border); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+            <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-bottom: 0.8rem; font-family: var(--font-title);">${title}</h1>
+            <div style="display: flex; gap: 1.5rem; color: var(--color-text-muted); font-size: 0.9rem;">
+              <span><i class="far fa-calendar" style="margin-left: 0.4rem; color: var(--color-secondary);"></i> ${date}</span>
+              <span><i class="far fa-clock" style="margin-left: 0.4rem; color: var(--color-secondary);"></i> ${readingTime}</span>
+              <span><i class="far fa-folder" style="margin-left: 0.4rem; color: var(--color-secondary);"></i> ${categoryName}</span>
+            </div>
+          </div>
+          
+          <div style="margin-bottom: 2rem;">
+            <img src="${post.image}" alt="${title}" style="width: 100%; height: auto; max-height: 400px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border);" />
+          </div>
+          
+          <p style="font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 500; color: var(--color-primary); font-style: italic;">${excerpt}</p>
+          
+          <div style="font-size: 1.05rem; display: flex; flex-direction: column; gap: 1.5rem; font-family: var(--font-body);">
+            ${body}
+          </div>
+          
+          <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px dashed var(--color-border); text-align: center;">
+            <h3 style="font-family: var(--font-title); color: var(--color-secondary); margin-bottom: 0.5rem;">${lovedTitleHe}</h3>
+            <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">${lovedTextHe}</p>
+            <button class="post-likes" data-post-id="${post.id}" style="background: var(--color-bg-card); border: 1px solid var(--color-border); padding: 0.8rem 2rem; border-radius: 30px; font-family: var(--font-body); font-size: 1rem; cursor: pointer; color: var(--color-text-muted); display: inline-flex; align-items: center; gap: 0.6rem; transition: var(--transition);">
+              <i class="far fa-heart" style="color: var(--color-primary);"></i> <span class="like-count">${post.likes}</span> ${likeBtnTextHe}
+            </button>
           </div>
         </div>
-        
-        <div style="margin-bottom: 2rem;">
-          <img src="${post.image}" alt="${post.title}" style="width: 100%; height: auto; max-height: 400px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border);" />
+      `;
+    } else {
+      // English post layout (IDs 1, 2, 3)
+      const body = post.body || `
+        <p>This is a full reflection about slow living, mindful patterns, and kitchen experiments. Osnat's blog represents a sanctuary where life unfolds at its own cozy rhythm. We observe and absorb the changing seasons, the quiet rise of sourdough starters, and the gentle breeze sweeping through the herbal garden.</p>
+        <p>By learning to listen to the whispers of our homes, we find that the middle chapters of our lives are often the richest, most rewarding, and filled with deep self-discovery.</p>
+      `;
+
+      modalBody.innerHTML = `
+        <div class="english-modal-container" style="color: var(--color-text); line-height: 1.8;">
+          <div style="border-bottom: 2px solid var(--color-border); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+            <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-bottom: 0.8rem; font-family: var(--font-title);">${post.title}</h1>
+            <div style="display: flex; gap: 1.5rem; color: var(--color-text-muted); font-size: 0.9rem;">
+              <span><i class="far fa-calendar" style="margin-right: 0.4rem; color: var(--color-secondary);"></i> ${post.date}</span>
+              <span><i class="far fa-clock" style="margin-right: 0.4rem; color: var(--color-secondary);"></i> ${post.readingTime}</span>
+              <span><i class="far fa-folder" style="margin-right: 0.4rem; color: var(--color-secondary);"></i> ${post.categoryName}</span>
+            </div>
+          </div>
+          
+          <div style="margin-bottom: 2rem;">
+            <img src="${post.image}" alt="${post.title}" style="width: 100%; height: auto; max-height: 400px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border);" />
+          </div>
+          
+          <p style="font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 500; color: var(--color-primary); font-style: italic;">${post.excerpt}</p>
+          
+          <div style="font-size: 1.05rem; display: flex; flex-direction: column; gap: 1.5rem; font-family: var(--font-body);">
+            ${body}
+          </div>
+          
+          <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px dashed var(--color-border); text-align: center;">
+            <h3 style="font-family: var(--font-title); color: var(--color-secondary); margin-bottom: 0.5rem;">Loved this reflection?</h3>
+            <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Leave a heart and keep the cozy fires burning.</p>
+            <button class="post-likes" data-post-id="${post.id}" style="background: var(--color-bg-card); border: 1px solid var(--color-border); padding: 0.8rem 2rem; border-radius: 30px; font-family: var(--font-body); font-size: 1rem; cursor: pointer; color: var(--color-text-muted); display: inline-flex; align-items: center; gap: 0.6rem; transition: var(--transition);">
+              <i class="far fa-heart" style="color: var(--color-primary);"></i> <span class="like-count">${post.likes}</span> Likes
+            </button>
+          </div>
         </div>
-        
-        <p style="font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 500; color: var(--color-primary); font-style: italic;">${post.excerpt}</p>
-        
-        <div style="font-size: 1.05rem; display: flex; flex-direction: column; gap: 1.5rem; font-family: var(--font-body);">
-          <p>This is a full reflection about slow living, mindful patterns, and kitchen experiments. Osnat's blog represents a sanctuary where life unfolds at its own cozy rhythm. We observe and absorb the changing seasons, the quiet rise of sourdough starters, and the gentle breeze sweeping through the herbal garden.</p>
-          <p>By learning to listen to the whispers of our homes, we find that the middle chapters of our lives are often the richest, most rewarding, and filled with deep self-discovery.</p>
-        </div>
-        
-        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px dashed var(--color-border); text-align: center;">
-          <h3 style="font-family: var(--font-title); color: var(--color-secondary); margin-bottom: 0.5rem;">Loved this reflection?</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">Leave a heart and keep the cozy fires burning.</p>
-          <button class="post-likes" data-post-id="${post.id}" style="background: var(--color-bg-card); border: 1px solid var(--color-border); padding: 0.8rem 2rem; border-radius: 30px; font-family: var(--font-body); font-size: 1rem; cursor: pointer; color: var(--color-text-muted); display: inline-flex; align-items: center; gap: 0.6rem; transition: var(--transition);">
-            <i class="far fa-heart" style="color: var(--color-primary);"></i> <span class="like-count">${post.likes}</span> Likes
-          </button>
-        </div>
-      </div>
-    `;
+      `;
+    }
     
-    // Wire up like button inside English modal
+    // Wire up like button inside standard modal (handles both English and Hebrew versions)
     const innerLikeBtn = modalBody.querySelector(".post-likes");
     if (innerLikeBtn) {
       const icon = innerLikeBtn.querySelector("i");
@@ -645,7 +779,11 @@ function openPostModal(post, modal, modalBody) {
           post.likes++;
           icon.className = "fas fa-heart";
           innerLikeBtn.style.color = "var(--color-primary)";
-          showToast("💖 Thanks for loving this post! It keeps my cozy kitchen running.");
+          
+          const thanksMessage = isHebrewPage 
+            ? "💖 תודה על הלייק שלכם! זה מחמם את הלב ומחזיק את הבלוג פעיל."
+            : "💖 Thanks for loving this post! It keeps my cozy kitchen running.";
+          showToast(thanksMessage);
           
           // Sync feed button if visible
           const feedBtn = document.querySelector(`.blog-feed .post-likes[data-post-id="${post.id}"]`);
@@ -662,5 +800,52 @@ function openPostModal(post, modal, modalBody) {
   
   // Show the modal
   modal.classList.add("active");
+}
+
+// 9. Dynamic Hebrew Calendar Widget using @hebcal/core
+async function initHebrewCalendarWidget() {
+  const dateEl = document.getElementById("hebrew-date-str");
+  const parashaEl = document.getElementById("hebrew-parasha-str");
+  if (!dateEl || !parashaEl) return;
+
+  try {
+    // Dynamically import HDate and HebrewCalendar from @hebcal/core ESM on CDN
+    const { HDate, HebrewCalendar } = await import('https://cdn.jsdelivr.net/npm/@hebcal/core/+esm');
+    
+    const today = new HDate();
+    // Render in Gematriya with vowels suppressed for readability (true)
+    const dateStr = today.renderGematriya(true); 
+    
+    // Calculate the upcoming Shabbat events to find the Parashat Hashavua
+    const options = {
+      start: today,
+      end: new HDate(today.abs() + 7), // look ahead 7 days
+      il: true, // Israel calendar
+      shabbatPortal: true
+    };
+    const events = HebrewCalendar.calendar(options);
+    
+    let parashaStr = "";
+    for (const ev of events) {
+      const desc = ev.getDesc();
+      if (desc && desc.startsWith("Parashat")) {
+        parashaStr = ev.render('he'); // e.g. "פרשת חקת"
+        break;
+      }
+    }
+    
+    dateEl.textContent = dateStr;
+    if (parashaStr) {
+      parashaEl.textContent = `שבת הקרובה: ${parashaStr}`;
+    } else {
+      parashaEl.textContent = "שבוע שקט ומבורך";
+    }
+  } catch (err) {
+    console.warn("Failed to load @hebcal/core:", err);
+    // Silent fallback if offline or CDN is blocked
+    const fallbackDate = new Date();
+    dateEl.textContent = fallbackDate.toLocaleDateString('he-IL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    parashaEl.textContent = "שבוע טוב ומבורך";
+  }
 }
 
